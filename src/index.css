@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.background {
+  background-image: url("../public/Img/Group\ 3.png");
+}
+.box-shadow {
+  box-shadow: 0px 2px 4px 0px rgba(41, 121, 255, 0.24),
+    0px 1px 2px 0px rgba(27, 78, 163, 0.24);
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Áp dụng keyframes cho phần tử muốn xuất hiện từ dưới lên */
+.slide-in-from-bottom {
+  animation: slideInFromBottom 0.2s ease-out;
+}
