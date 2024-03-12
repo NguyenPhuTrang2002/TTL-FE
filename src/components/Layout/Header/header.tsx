@@ -145,7 +145,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center items-center px-[99px] py-4">
+        <div className="flex justify-center items-center px-[60px] py-4">
           {ArrayList.map((item, index) => (
             <ListItem key={index} icon={item.icon} title={item.title} />
           ))}

@@ -44,8 +44,8 @@ export const useRegisterForm = () => {
         window.location.href = '/login';
       }, 3000);
     } else {
-      // Kiểm tra xem nội dung lỗi trả về có chứa chuỗi 'email đã tồn tại' không
-      if (res.error && res.error.includes("email đã tồn tại")) {
+      const errorCode = 400;
+      if (errorCode === ErrorCode.VALIDATE) {
         toast.warning("Email đã tồn tại. Vui lòng chọn một email khác !", {
           position: "top-right",
           autoClose: 5000,
