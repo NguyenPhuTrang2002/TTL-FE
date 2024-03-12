@@ -8,7 +8,15 @@ interface ProductProps {
   image: string;
   point: string;
 }
-
+const formatPrice = (price: string) => {
+  let priceString = price.toString();
+  let parts = priceString.split('.');
+  let integerPart = parts[0];
+  let decimalPart = parts.length > 1 ? `.${parts[1]}` : '';
+  let formattedIntegerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  let formattedPrice = formattedIntegerPart + decimalPart;
+  return formattedPrice;
+}
 const Product = ({ name, price, description, image, point }: ProductProps) => {
   return (
     <div className="h-[472px] w-[259px] rounded-md flex flex-col hover:shadow-xl p-4">
@@ -16,7 +24,7 @@ const Product = ({ name, price, description, image, point }: ProductProps) => {
         <img className="w-[227px] h-[224px] rounded-md" src={image} alt="Product" />
       </div>
       <p className="text-[16px] py-3 font-medium line-clamp-3 overflow-hidden">{name}</p>
-      <p className="text-[24px] font-bold py-3">${price}</p>
+      <p className="text-[24px] font-bold py-3">${formatPrice(price)}</p>
       <p className="text-[14px] text-[rgb(120,120,133)] flex-1">{description}</p>
       <div className="flex space-x-3 items-center justify-center">
         <div className="flex space-x-1 items-center">
